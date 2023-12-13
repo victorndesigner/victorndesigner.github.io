@@ -58,9 +58,9 @@ function getPosts() {
         },
         {
             title: "Reshader",
-            version: "0.61.6",
+            version: "0.62",
             image: "assets/imagens/RESHADER.png",
-            download: "https://stfly.me/RESTEAM12",
+            download: "https://stfly.me/RESTEAM13",
             downloadMobile: "mobilefdp4.html"
         },
         {
