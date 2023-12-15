@@ -44,9 +44,9 @@ function getPosts() {
         },
         {
             title: "Yellow Otimizada",
-            version: "0.60",
+            version: "0.62",
             image: "assets/imagens/YELLOWOTIMIZADA.png",
-            download: "https://stfly.me/YELLOWSTEAM10",
+            download: "https://stfly.me/YELLOWSTEAM13",
             downloadMobile: "mobilefdp8.html"
         },
         {
