@@ -72,9 +72,9 @@ function getPosts() {
         },
         {
             title: "GalaxyBolt",
-            version: "0.61.6",
+            version: "0.62.1",
             image: "assets/imagens/GALAXYBOLT.png",
-            download: "https://stfly.me/GLXBSTEAM12",
+            download: "https://stfly.me/GLXSTEAM14",
             downloadMobile: "mobilefdp12.html"
         },
         {
