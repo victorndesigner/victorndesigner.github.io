@@ -1,159 +1,173 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+function getPosts() {
+    return [
+        {
+            title: "StumbleBolt",
+            version: "0.59.1",
+            image: "assets/imagens/STUMBLEBOLT.png",
+            download: "https://stfly.me/BOLTSTEAM7",
+            downloadMobile: "mobilefdp5.html"
+        },
+        {
+            title: "StumbleBolt2.0",
+            version: "0.59.1",
+            image: "assets/imagens/STUMBLEBOLT2.0.png",
+            download: "https://stfly.me/BOLT2STEAM7",
+            downloadMobile: "mobilefdp6.html"
+        },
+        {
+            title: "StumbleGodz",
+            version: "0.59.1",
+            image: "assets/imagens/STUMBLEGODZ.png",
+            download: "https://stfly.me/GODZSTEAM7",
+            downloadMobile: "mobilefdp11.html"
+        },
+        {
+            title: "StumbleGodzExc",
+            version: "0.51",
+            image: "assets/imagens/STUMBLEGODZEXC.png",
+            download: "Link",
+            downloadMobile: "mobilefdp12.html"
+        },
+        {
+            title: "MegaLite BoltAstax",
+            version: "0.62.1",
+            image: "assets/imagens/MEGALITEBOLTASTAX.png",
+            download: "https://stfly.me/MGLTSTEAM14",
+            downloadMobile: "mobilefdp2.html"
+        },
+        {
+            title: "MegaLite 2.0 BoltAstax",
+            version: "0.62",
+            image: "assets/imagens/MEGALITE2.0BOLTASTAX.png",
+            download: "https://stfly.me/MGLT2STEAM13",
+            downloadMobile: "mobilefdp7.html"
+        },
+        {
+            title: "Yellow Otimizada",
+            version: "0.62",
+            image: "assets/imagens/YELLOWOTIMIZADA.png",
+            download: "https://stfly.me/YELLOWSTEAM13",
+            downloadMobile: "mobilefdp8.html"
+        },
+        {
+            title: "Reshader BoltAstax",
+            version: "0.62.1",
+            image: "assets/imagens/RESHADERBOLTASTAX.png",
+            download: "https://stfly.me/MGLTRESTEAM14",
+            downloadMobile: "mobilefdp3.html"
+        },
+        {
+            title: "Reshader",
+            version: "0.62",
+            image: "assets/imagens/RESHADER.png",
+            download: "https://stfly.me/RESTEAM13",
+            downloadMobile: "mobilefdp4.html"
+        },
+        {
+            title: "StumblePink",
+            version: "0.51",
+            image: "assets/imagens/STUMBLEPINK.png",
+            download: "Link",
+            downloadMobile: "Link"
+        },
+        {
+            title: "GalaxyBolt",
+            version: "0.61.6",
+            image: "assets/imagens/GALAXYBOLT.png",
+            download: "https://stfly.me/GLXBSTEAM12",
+            downloadMobile: "mobilefdp12.html"
+        },
+        {
+            title: "BoltAgua",
+            version: "0.54",
+            image: "assets/imagens/BOLTAGUA.png",
+            download: "Link",
+            downloadMobile: "Link"
+        },
+        {
+            title: "DarkUva",
+            version: "0.62",
+            image: "assets/imagens/DARKUVA.png",
+            download: "https://stfly.me/UVASTEAM13",
+            downloadMobile: "mobilefdp10.html"
+        },
+        {
+            title: "BoltWeen",
+            version: "0.60",
+            image: "assets/imagens/BOLTWEEN.png",
+            download: "https://stfly.me/WEENSTEAM10",
+            downloadMobile: "mobilefdp9.html"
+        },
+        {
+            title: "BoltAstaxzz",
+            version: "0.62",
+            image: "assets/imagens/BOLTAXZZ.png",
+            download: "https://stfly.me/BAZSTEAM13",
+            downloadMobile: "mobilefdp1.html"
+        }
+    ];
+};
 
-  <head>
+async function getVersion() {
+    let returnVersion;
+    await fetch('https://api.stumbleguys.com/shared/1/LIVE')
+        .then(r => r.json())
+        .then(data => {
+            let version = data.Versions.Max
+            returnVersion = version;
+        });
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <title>BoltTexturas WebSite</title>
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="icon" href="https://media.discordapp.net/attachments/1048760549011357716/1183993678600077393/PERFIL_1.png?ex=658a5b0a&is=6577e60a&hm=b5b9f6d30e11211ff7b900893ef9592e7d90a3a7cc436f2189e74c3f074b98d8&=&format=webp&quality=lossless&width=495&height=495">
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-cyborg-gaming.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
-    <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+    return returnVersion;
+};
 
-  </head>
+(async () => {
+    const postagens = await getPosts();
+    const stumbleVersion = await getVersion();
+    const postsDisponiveis = [];
+    const postsIndisponiveis = [];
 
-<body>
+    postagens.forEach(postagem => {
+        const postDisponivel = postagem.version == stumbleVersion;
+        
+        if (postDisponivel) {
+                postsDisponiveis.push(`
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="item">
+                            <span style="pointer-events: none;">
+                                <img src="${postagem.image}" alt="${postagem.title}">
+                            </span>
+                            <h4>${postagem.title}<br><span style="color: rgb(255, 183, 183);">${postagem.version}</span></h4>
+                            <div class="button-container">
+                                <a href="${postagem.downloadMobile}" class="purple-button">Mobile</a>
+                                <a href="${postagem.download}" class="purple-button">Steam</a>
+                            </div>
+                        </div>
+                    </div>
+            `);
+        } else {
+            postsIndisponiveis.push(`
+                <div class="col-lg-3 col-sm-6">
+                    <div class="item">
+                        <span style="pointer-events: none;">
+                            <img src="${postagem.image}" alt="${postagem.title}">
+                        </span>
+                        <h4 style="color: gray;">Indisponível<br><span>Desatualizada</span></h4>
+                    </div>
+                </div>
+            `);
+        };
+    });
 
-  <div id="js-preloader" class="js-preloader">
-    <div class="preloader-inner">
-      <span class="dot"></span>
-      <div class="dots">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  </div>
+    document.querySelector('.heading-section').querySelector('.row').innerHTML += `
+        ${postsDisponiveis.join('\n')}
+        ${postsIndisponiveis.join('\n')}
+    `;
 
-  <header class="header-area header-sticky">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <nav class="main-nav">
-
-                    <a class="logo">
-                        <img src="assets/imagens/LOGO.png" alt="">
-                    </a>
-
-                    <ul class="nav">
-                      <li><a href="mobilefdp3.html" class="active">Apk mobile</a></li>
-                      <li><a href="index.html">Inicio</a></li>
-                 <!-- <li><a href="tutoriais.html">Tutoriais</a></li> -->
-                      <li><a href="texturas.html">Texturas</a></li>
-                      <li><a href="perfil.html">Perfil <img src="assets/imagens/ICON.png" alt=""></a></li>
-                    </ul>   
-                    <a class='menu-trigger'>
-                        <span>Menu</span>
-                    </a>
-
-                </nav>
+    document.querySelector('.heading-section').querySelector('.row').innerHTML += `
+        <div class="col-lg-12">
+            <div class="main-button">
+                <a href="https://discord.gg/RKH4RAbDaZ">Discord</a>
             </div>
         </div>
-    </div>
-  </header>
-
-</div>
-<div class="col-lg-12">
-  <div class="feature-banner header-text">
-  <p style="text-align: center; margin-top: 167px;">(APK COM TEXTURA SEM GUYS01) ou (APK COM TEXTURA E GUYS01)</p>
-<div class="col-lg-12">
-  <div class="wrapper" style="display: flex; justify-content: center; flex-wrap: wrap;">
-    <div class="main-border-button" style="display: flex; flex-direction: column; align-items: center; margin: 10px; max-width: 400px;">
-      <a href="https://stfly.me/MGLTRESG14" style="font-size: 14px; width: 100%;">TEXTURA SEM GUYS01</a>
-      <img src="assets/imagens/STUMBLEGUYS.jpg" alt="" style="border-radius: 23px; margin: 10px 0 25px; width: 67%; height: auto;">
-    </div>
-    <!-- <div class="main-border-button" style="display: flex; flex-direction: column; align-items: center; margin: 10px; max-width: 400px;">
-      <a href="https://stfly.me/MGLTRECG13" style="font-size: 14px; width: 100%;">TEXTURA COM GUYS01</a>
-      <img src="assets/imagens/GUYS01.jpg" alt="" style="border-radius: 23px; margin: 10px 0 25px; width: 67%; height: auto;">
-    </div> -->
-  </div>                                           
-</div>
-
-<div class="conteinerneve">
-  <div class="neve"></div>
-</div>
-
-<style>
-    *,*:after,*:before{
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      -ms-box-sizing: border-box;
-      box-sizing: border-box;
-    }
-    
-    .conteinerneve{
-      height: 100vh;
-      width: 100%;
-      background-size: cover;
-      background-position: center bottom; 
-      overflow: hidden;
-      position: fixed;
-      z-index: 999;
-      pointer-events: none;
-    }
-    
-    .neve, .neve:before, .neve:after {
-      position: fixed;
-      top: -650px;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      background-image: 
-      radial-gradient(4px 4px at 100px 50px, #fff , transparent), 
-      radial-gradient(6px 6px at 200px 150px, #fff, transparent), 
-      radial-gradient(4px 4px at 100px 50px, #fff , transparent), 
-      radial-gradient(3px 3px at 300px 250px, #fff 50%, transparent), 
-      radial-gradient(3px 3px at 50px 200px, #fff 50%, transparent), 
-      radial-gradient(3px 3px at 350px 500px, #fff 70%, transparent);
-      background-size: 650px 650px;
-      animation: caineve 10s linear infinite;
-      content: "";
-      pointer-events: none;
-    }
-    .neve:after {
-      margin-left: -250px;
-opacity: 0.5;
-      filter: blur(2px);
-      animation-duration: 15s;
-      pointer-events: none;
-    }
-    
-    .neve:before {
-      margin-left: -350px;
-      opacity: 0.7;
-      filter: blur(1px);
-      animation-duration: 15s;
-      pointer-events: none;
-    }
-    
-    @keyframes caineve {
-      from {
-        transform: translateY(0px);
-        pointer-events: none;
-      }
-      
-      to {
-        transform: translateY(650px);
-        pointer-events: none;
-      }
-    }
-</style>
-
-</div>
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-
-  <script src="assets/js/isotope.min.js"></script>
-  <script src="assets/js/owl-carousel.js"></script>
-  <script src="assets/js/tabs.js"></script>
-  <script src="assets/js/popup.js"></script>
-  <script src="assets/js/custom.js"></script>
-
-  </body>
-
-</html>
+    `;
+})();
