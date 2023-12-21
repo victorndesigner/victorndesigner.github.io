@@ -30,9 +30,9 @@ function getPosts() {
         },
         {
             title: "MegaLite BoltAstax",
-            version: "0.62.1",
+            version: "0.62.5",
             image: "assets/imagens/MEGALITEBOLTASTAX.png",
-            download: "https://stfly.me/MGLTSTEAM14",
+            download: "https://stfly.me/MGLTSTEAM15",
             downloadMobile: "mobilefdp2.html"
         },
         {
