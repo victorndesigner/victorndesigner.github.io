@@ -100,9 +100,9 @@ function getPosts() {
         },
         {
             title: "BoltAstaxzz",
-            version: "0.62",
+            version: "0.62.5",
             image: "assets/imagens/BOLTAXZZ.png",
-            download: "https://stfly.me/BAZSTEAM13",
+            download: "https://stfly.me/BAZSTEAM15",
             downloadMobile: "mobilefdp1.html"
         }
     ];
