@@ -86,9 +86,9 @@ function getPosts() {
         },
         {
             title: "DarkUva",
-            version: "0.62",
+            version: "0.62.5",
             image: "assets/imagens/DARKUVA.png",
-            download: "https://stfly.me/UVASTEAM13",
+            download: "https://stfly.me/UVASTEAM15",
             downloadMobile: "mobilefdp10.html"
         },
         {
