@@ -51,9 +51,9 @@ function getPosts() {
         },
         {
             title: "Reshader BoltAstax",
-            version: "0.62.1",
+            version: "0.62.5",
             image: "assets/imagens/RESHADERBOLTASTAX.png",
-            download: "https://stfly.me/MGLTRESTEAM14",
+            download: "https://stfly.me/MGLTRESTEAM15",
             downloadMobile: "mobilefdp3.html"
         },
         {
