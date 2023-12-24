@@ -79,10 +79,10 @@ function getPosts() {
         },
         {
             title: "BoltAgua",
-            version: "0.54",
+            version: "0.62.5",
             image: "assets/imagens/BOLTAGUA.png",
-            download: "Link",
-            downloadMobile: "Link"
+            download: "https://stfly.me/AGUASTEAM15",
+            downloadMobile: "mobilefdp13"
         },
         {
             title: "DarkUva",
